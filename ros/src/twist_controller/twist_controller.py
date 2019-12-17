@@ -10,16 +10,6 @@ ONE_MPH = 0.44704
 
 class Controller(object):
     def __init__(self, vehicle_mass, fuel_capacity, brake_deadband, decel_limit, accel_limit, wheel_radius, wheel_base, steer_ratio, max_lat_accel, max_steer_angle):
-        rospy.logwarn("vehicle_mass: {0}".format(vehicle_mass))
-        rospy.logwarn("fuel_capacity: {0}".format(fuel_capacity))
-        rospy.logwarn("brake_deadband: {0}".format(brake_deadband))
-        rospy.logwarn("decel_limit: {0}".format(decel_limit))
-        rospy.logwarn("accel_limit: {0}".format(accel_limit))
-        rospy.logwarn("wheel_radius: {0}".format(wheel_radius))
-        rospy.logwarn("wheel_base: {0}".format(wheel_base))
-        rospy.logwarn("steer_ratio: {0}".format(steer_ratio))
-        rospy.logwarn("max_lat_accel: {0}".format(max_lat_accel))
-        rospy.logwarn("max_steer_angle: {0}".format(max_steer_angle))
         # TODO: Implement
         self.yaw_controller = YawController(wheel_base, steer_ratio, 0.1, max_lat_accel, max_steer_angle)
         
@@ -65,12 +55,12 @@ class Controller(object):
         throttle = self.throttle_controller.step(vel_error, sample_time)
         brake = 0
         
-        rospy.logwarn("Angular vel: {0}".format(angular_vel))
-        rospy.logwarn("target vel: {0}".format(linear_vel))
-        rospy.logwarn("target angular vel: {0}\n".format(angular_vel))
-        rospy.logwarn("current velocity: {0}".format(current_vel))
-        rospy.logwarn("filtered velocity: {0}".format(self.vel_lpf.get()))
-        rospy.logwarn("steering: {0}".format(steering))
+        # rospy.logwarn("Angular vel: {0}".format(angular_vel))
+        # rospy.logwarn("target vel: {0}".format(linear_vel))
+        # rospy.logwarn("target angular vel: {0}\n".format(angular_vel))
+        # rospy.logwarn("current velocity: {0}".format(current_vel))
+        # rospy.logwarn("filtered velocity: {0}".format(self.vel_lpf.get()))
+        # rospy.logwarn("steering: {0}".format(steering))
         
         
         if linear_vel == 0. and current_vel < .1:

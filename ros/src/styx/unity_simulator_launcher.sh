@@ -16,4 +16,6 @@ if [ ! -f "$USER_PROFILE" ];
     unity_path=$(cat "$USER_PROFILE")
 fi
 
+unity_path='/home/mirkolinux/workspace/Simulator/sys_int.x86_64'
+
 $unity_path
